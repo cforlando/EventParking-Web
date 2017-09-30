@@ -20,7 +20,7 @@ const TitleBar = () => {
           <img className='logo' src='./images/citylogo_db.png' />
         </Col>
         <Col xs="6" sm="6" md="6">
-          <span className='title'>Event Parking Schedule</span>
+          <div className='title'>Event Parking Schedule</div>
         </Col>
       </Row>
     </Navbar>
