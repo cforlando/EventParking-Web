@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import 
+import Logo from './components/Logo';
+import Body from './components/Body';
 import './App.css';
+
+const styles = {
+  appStyles: {
+
+  }
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <TitleBar>
-          <Logo></Logo>
-          <Title></Title>
-          <Body>
-            <CalendarContainer></CalendarContainer>
-          </Body>
-        </TitleBar>
+      <div>
+        <TitleBar />
+        <Body />
       </div>
     );
   }
