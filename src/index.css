@@ -1,16 +1,15 @@
 
 .title {
-  font-size: 3rem;
-  vertical-align: bottom;
-  margin-left: 16rem;
+  justify-content: center;
+  font-size: 3rem
 }
 
 @media (max-width: 575px) { 
   .logo {
-    width: 50%;
+    width: 100%;
   }
   .title {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 600;
   }
  }

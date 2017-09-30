@@ -7,7 +7,7 @@ const styles = {
 
   },
   title: {
-
+    
   },
 }
 
@@ -16,11 +16,11 @@ const TitleBar = () => {
     <div>
     <Navbar style={{backgroundColor: "#e9e9e9"}}>
       <Row>
-        <Col xs="12" sm="12" md="12">
-          <div>
-            <img className='logo' src='./images/citylogo_db.png' />
-            <span className='title'>Event Parking Schedule</span>
-          </div>
+        <Col xs="6" sm="6" md="6">
+          <img className='logo' src='./images/citylogo_db.png' />
+        </Col>
+        <Col xs="6" sm="6" md="6">
+          <span className='title'>Event Parking Schedule</span>
         </Col>
       </Row>
     </Navbar>
