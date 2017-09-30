@@ -1,3 +1,3 @@
-import TitleBar from 'TitleBar.js';
+import TitleBar from './TitleBar';
 
 export default TitleBar;

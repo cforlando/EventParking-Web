@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../Logo';
 import Title from '../Title';
+import { Row, Col, Navbar, NavbarBrand, NavItem } from 'reactstrap'
 
 const styles = {
   logo: {
@@ -14,8 +14,22 @@ const styles = {
 const TitleBar = () => {
   return(
     <div>
-      <Logo imgSrc="http://www.cityoforlando.net/wp-content/uploads/2016/08/citylogo_db.png"></Logo>
-      <Title />
+    <Navbar style={{backgroundColor: "#e9e9e9"}}>
+      <Row>
+        <Col xs="12" sm="12" md="12">
+          <div>
+            <img className='logo' src='./images/citylogo_db.png' />
+            <span className='title'>Event Parking Schedule</span>
+          </div>
+        </Col>
+      </Row>
+    </Navbar>
     </div>
   );
 }
+
+export default TitleBar;
+
+
+{/* <img src='./images/citylogo_db.png'></img>
+<Title /> */}

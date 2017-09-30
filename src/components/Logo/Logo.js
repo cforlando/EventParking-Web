@@ -7,3 +7,5 @@ const Logo = ({ logoSrc }) => {
     </div>
   );
 }
+
+export default Logo;

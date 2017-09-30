@@ -4,7 +4,7 @@ import CalendarContainer from '../../containers/CalendarContainer';
 const Body = () => {
   return(
     <div>
-      <CalendarContainer>
+      <CalendarContainer/>
     </div>
   );
 }
