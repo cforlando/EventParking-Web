@@ -2,6 +2,7 @@
 .title {
   font-size: 3rem;
   text-align: center;
+  color: #1f293f;
 }
 
 @media (max-width: 575px) { 
