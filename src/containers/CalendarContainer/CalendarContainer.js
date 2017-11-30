@@ -17,15 +17,15 @@ export default class CalendarContainer extends Component {
   }
 
   componentDidMount() {
-    // headers probably not needed for deployment; only included them
-    // to get Chrome to stop fussing.
-    axios.get('http://localhost:5000/events', {
+    const eventsURL = "https://cfo-event-parking.herokuapp.com/events";
+    axios.get(eventsURL, {
       crossDomain: true,
       headers: {'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'HEAD, GET, POST, PUT, PATCH, DELETE',
                 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'}
     }).then((res) => { this.setState({ dates: res.data }); })
       .then((res) => {
+        console.log(this.state.dates);
         let updatedEvents = [];
         _.each(this.state.dates, (date) => {
           let pDate = date.split('-');
