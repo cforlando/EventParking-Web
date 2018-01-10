@@ -48,9 +48,9 @@ export default class CalendarContainer extends Component {
   render() {
     let parkingMessage = null;
     if (this.state.isParking)
-      parkingMessage = <h2>YES! There is Event Parking Today!</h2>
+      parkingMessage = <h2 style={{textAlign: "center", margin:"20px 0 20px 0"}}>YES! There is Event Parking Today!</h2>
     else
-      parkingMessage = <h2>There is no Event Parking today.</h2>
+      parkingMessage = <h2 style={{textAlign: "center", margin:"20px 0 20px 0"}}>There is no Event Parking today.</h2>
     return(
       <div>
         { parkingMessage }
