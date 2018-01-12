@@ -2,6 +2,7 @@
   "name": "EventParkingCFO",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://cfo-event-parking-web.herokuapp.com/",
   "devDependencies": {
     "react-scripts": "1.0.14"
   },
