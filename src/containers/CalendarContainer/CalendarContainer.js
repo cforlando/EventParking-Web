@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import Spinner from 'react-spinkit';
 import BigCalendar from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import _ from 'underscore';
@@ -12,6 +13,7 @@ export default class CalendarContainer extends Component {
       dates: [],
       events: [],
       isParking: false,
+      isLoaded: false,
     }
     BigCalendar.momentLocalizer(moment);
   }
@@ -25,7 +27,6 @@ export default class CalendarContainer extends Component {
                 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'}
     }).then((res) => { this.setState({ dates: res.data }); })
       .then((res) => {
-        console.log(this.state.dates);
         let updatedEvents = [];
         _.each(this.state.dates, (date) => {
           let pDate = date.split('-');
@@ -42,29 +43,41 @@ export default class CalendarContainer extends Component {
         })) {
           this.setState({ isParking: true });
         }
+      }).then((res) => {
+          this.setState({ isLoaded: true }); 
       })
     }
 
   render() {
-    let parkingMessage = null;
-    if (this.state.isParking)
-      parkingMessage = <h2 style={{textAlign: "center", margin:"20px 0 20px 0"}}>YES! There is Event Parking Today!</h2>
-    else
-      parkingMessage = <h2 style={{textAlign: "center", margin:"20px 0 20px 0"}}>There is no Event Parking today.</h2>
+    let parkingMessage = null, calendar = null;
+    if (this.state.isLoaded) {
+        calendar = <BigCalendar 
+        events={this.state.events} 
+        views={{
+          'month': true,
+          'agenda': false,
+          'week': false,
+          'day': false,
+          'work_week': false
+        }}
+        toolbar={false}
+      />
+      if (this.state.isParking) {
+        parkingMessage = <h2 style={{textAlign: "center", margin:"20px 0 20px 0"}}>YES! There is Event Parking Today!</h2>
+      }
+      else {
+        parkingMessage = <h2 style={{textAlign: "center", margin:"20px 0 20px 0"}}>There is no Event Parking today.</h2>
+      }
+    } else { 
+        parkingMessage = <h2 style={{textAlign: "center", margin: "20px 0 20px 0"}}>Loading...</h2>
+        calendar = <div style={{display: "flex", alignItems: "center", justifyContent: "center", height: "300px" }}> 
+                       <Spinner name="ball-spin-fade-loader" />
+                   </div>
+    }
     return(
       <div>
         { parkingMessage }
-        <BigCalendar
-          events={this.state.events}
-          views={{
-           'month': true,
-           'agenda': false,
-           'week': false,
-           'day': false,
-           'work_week': false
-         }}
-          toolbar={false}
-        />
+        { calendar }
       </div>
     );
   }
